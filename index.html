@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demo Page</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #333;
+      background: #fff;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .header h1 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      color: #1a1a2e;
+    }
+    .header .authors {
+      font-size: 1.05rem;
+      color: #555;
+      margin-bottom: 6px;
+    }
+    .header .affiliation {
+      font-size: 0.95rem;
+      color: #777;
+    }
+
+    /* Abstract */
+    .abstract-section {
+      background: #fafafa;
+      border: 1px solid #e8e8e8;
+      border-radius: 8px;
+      padding: 30px 35px;
+      margin-bottom: 45px;
+    }
+    .abstract-section h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: #1a1a2e;
+    }
+    .abstract-section p {
+      font-size: 1.0rem;
+      color: #444;
+      text-align: justify;
+    }
+
+    /* Figure */
+    .figure-section {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .figure-section h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+      color: #1a1a2e;
+    }
+    .figure-placeholder {
+      background: #f5f5f5;
+      border: 2px dashed #ccc;
+      border-radius: 8px;
+      padding: 60px 20px;
+      color: #999;
+      font-size: 1.1rem;
+    }
+    .figure-section img {
+      max-width: 100%;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    /* Samples */
+    .samples-section {
+      margin-bottom: 50px;
+    }
+    .samples-section > h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 30px;
+      color: #1a1a2e;
+    }
+
+    .patient-block {
+      margin-bottom: 45px;
+    }
+    .patient-block h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #e0e0e0;
+      color: #2c3e50;
+    }
+
+    .mel-table {
+      width: 100%;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+    .mel-table th,
+    .mel-table td {
+      border: 1px solid #ddd;
+      padding: 8px 6px;
+      text-align: center;
+      vertical-align: middle;
+    }
+    .mel-table thead th {
+      background: #f7f7f7;
+      font-weight: 700;
+      font-size: 0.92rem;
+      color: #444;
+      padding: 10px 6px;
+    }
+    .mel-table tbody th {
+      background: #fcfcfc;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: #555;
+      width: 120px;
+    }
+    .mel-table td img {
+      width: 100%;
+      max-width: 280px;
+      display: block;
+      margin: 0 auto;
+      border-radius: 4px;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 30px 0;
+      border-top: 1px solid #eee;
+      color: #999;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 768px) {
+      .header h1 { font-size: 1.4rem; }
+      .mel-table td img { max-width: 100%; }
+      .mel-table tbody th { font-size: 0.78rem; width: 80px; }
+      .mel-table thead th { font-size: 0.78rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <div class="header">
+      <h1>Adaptive Cortical Clustering and Multi-Band Encoding for SEEG-to-Speech Synthesis</h1>
+      <p class="authors">Woojin Chung and Hong-Goo Kang</p>
+      <p class="affiliation">School of Electrical and Electronic Engineering, Yonsei University</p>
+    </div>
+
+    <!-- Abstract -->
+    <div class="abstract-section">
+      <h2>Abstract</h2>
+      <p>In this study, we propose a patient adaptive brain-to-speech synthesis system designed to overcome key limitations of conventional neural decoding methods stemming from incomplete utilization of neural information. Our framework first introduces an adaptive region clustering method that automatically identifies functionally coherent brain regions based on inter-channel correlations, eliminating reliance on potentially unreliable anatomical boundaries, a challenge that is particularly acute in stereoelectroencephalography (sEEG), where electrodes traverse multiple cortical and subcortical layers. Building on the discovered regions, we employ a region-wise multi-band frequency encoder that captures spectral information across multiple frequency bands, including theta, beta, and gamma oscillations, while leveraging the functional specialization of each region to enhance decoding performance. We further address the challenge of limited training data by adapting a pre-trained self-supervised learning model using Low-Rank Adaptation (LoRA) fine-tuning. This comprehensive framework not only improves the quality of synthesized speech but also establishes a new paradigm for brain-to-speech synthesis, one that maximizes the exploitation of available neural information while accommodating individual variability, even under data-constrained conditions.</p>
+    </div>
+
+    <!-- Figure -->
+    <div class="figure-section">
+      <h2>Proposed Method</h2>
+      <img src="overall_framework_new.png" alt="Proposed method overview">
+    </div>
+
+    <!-- Mel-Spectrogram Samples -->
+    <div class="samples-section">
+      <h2>Mel-Spectrogram Comparison</h2>
+
+      <!-- Patient 1 -->
+      <div class="patient-block">
+        <h3>Patient 1</h3>
+        <table class="mel-table">
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Sample 1</th>
+              <th>Sample 2</th>
+              <th>Sample 3</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Ground Truth</th>
+              <td><img src="mel_outputs/p1/ground_truth/sample1.png" alt="P1 GT Sample 1"></td>
+              <td><img src="mel_outputs/p1/ground_truth/sample2.png" alt="P1 GT Sample 2"></td>
+              <td><img src="mel_outputs/p1/ground_truth/sample3.png" alt="P1 GT Sample 3"></td>
+            </tr>
+            <tr>
+              <th>Proposed</th>
+              <td><img src="mel_outputs/p1/proposed/sample1.png" alt="P1 Proposed Sample 1"></td>
+              <td><img src="mel_outputs/p1/proposed/sample2.png" alt="P1 Proposed Sample 2"></td>
+              <td><img src="mel_outputs/p1/proposed/sample3.png" alt="P1 Proposed Sample 3"></td>
+            </tr>
+            <tr>
+              <th>EDR</th>
+              <td><img src="mel_outputs/p1/edr/sample1.png" alt="P1 EDR Sample 1"></td>
+              <td><img src="mel_outputs/p1/edr/sample2.png" alt="P1 EDR Sample 2"></td>
+              <td><img src="mel_outputs/p1/edr/sample3.png" alt="P1 EDR Sample 3"></td>
+            </tr>
+            <tr>
+              <th>NI</th>
+              <td><img src="mel_outputs/p1/ni/sample1.png" alt="P1 NI Sample 1"></td>
+              <td><img src="mel_outputs/p1/ni/sample2.png" alt="P1 NI Sample 2"></td>
+              <td><img src="mel_outputs/p1/ni/sample3.png" alt="P1 NI Sample 3"></td>
+            </tr>
+            <tr>
+              <th>Swin3D</th>
+              <td><img src="mel_outputs/p1/swin3d/sample1.png" alt="P1 Swin3D Sample 1"></td>
+              <td><img src="mel_outputs/p1/swin3d/sample2.png" alt="P1 Swin3D Sample 2"></td>
+              <td><img src="mel_outputs/p1/swin3d/sample3.png" alt="P1 Swin3D Sample 3"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Patient 2 -->
+      <div class="patient-block">
+        <h3>Patient 2</h3>
+        <table class="mel-table">
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Sample 1</th>
+              <th>Sample 2</th>
+              <th>Sample 3</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Ground Truth</th>
+              <td><img src="mel_outputs/p2/ground_truth/sample1.png" alt="P2 GT Sample 1"></td>
+              <td><img src="mel_outputs/p2/ground_truth/sample2.png" alt="P2 GT Sample 2"></td>
+              <td><img src="mel_outputs/p2/ground_truth/sample3.png" alt="P2 GT Sample 3"></td>
+            </tr>
+            <tr>
+              <th>Proposed</th>
+              <td><img src="mel_outputs/p2/proposed/sample1.png" alt="P2 Proposed Sample 1"></td>
+              <td><img src="mel_outputs/p2/proposed/sample2.png" alt="P2 Proposed Sample 2"></td>
+              <td><img src="mel_outputs/p2/proposed/sample3.png" alt="P2 Proposed Sample 3"></td>
+            </tr>
+            <tr>
+              <th>EDR</th>
+              <td><img src="mel_outputs/p2/edr/sample1.png" alt="P2 EDR Sample 1"></td>
+              <td><img src="mel_outputs/p2/edr/sample2.png" alt="P2 EDR Sample 2"></td>
+              <td><img src="mel_outputs/p2/edr/sample3.png" alt="P2 EDR Sample 3"></td>
+            </tr>
+            <tr>
+              <th>NI</th>
+              <td><img src="mel_outputs/p2/ni/sample1.png" alt="P2 NI Sample 1"></td>
+              <td><img src="mel_outputs/p2/ni/sample2.png" alt="P2 NI Sample 2"></td>
+              <td><img src="mel_outputs/p2/ni/sample3.png" alt="P2 NI Sample 3"></td>
+            </tr>
+            <tr>
+              <th>Swin3D</th>
+              <td><img src="mel_outputs/p2/swin3d/sample1.png" alt="P2 Swin3D Sample 1"></td>
+              <td><img src="mel_outputs/p2/swin3d/sample2.png" alt="P2 Swin3D Sample 2"></td>
+              <td><img src="mel_outputs/p2/swin3d/sample3.png" alt="P2 Swin3D Sample 3"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Patient 3 -->
+      <div class="patient-block">
+        <h3>Patient 3</h3>
+        <table class="mel-table">
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Sample 1</th>
+              <th>Sample 2</th>
+              <th>Sample 3</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Ground Truth</th>
+              <td><img src="mel_outputs/p3/ground_truth/sample1.png" alt="P3 GT Sample 1"></td>
+              <td><img src="mel_outputs/p3/ground_truth/sample2.png" alt="P3 GT Sample 2"></td>
+              <td><img src="mel_outputs/p3/ground_truth/sample3.png" alt="P3 GT Sample 3"></td>
+            </tr>
+            <tr>
+              <th>Proposed</th>
+              <td><img src="mel_outputs/p3/proposed/sample1.png" alt="P3 Proposed Sample 1"></td>
+              <td><img src="mel_outputs/p3/proposed/sample2.png" alt="P3 Proposed Sample 2"></td>
+              <td><img src="mel_outputs/p3/proposed/sample3.png" alt="P3 Proposed Sample 3"></td>
+            </tr>
+            <tr>
+              <th>EDR</th>
+              <td><img src="mel_outputs/p3/edr/sample1.png" alt="P3 EDR Sample 1"></td>
+              <td><img src="mel_outputs/p3/edr/sample2.png" alt="P3 EDR Sample 2"></td>
+              <td><img src="mel_outputs/p3/edr/sample3.png" alt="P3 EDR Sample 3"></td>
+            </tr>
+            <tr>
+              <th>NI</th>
+              <td><img src="mel_outputs/p3/ni/sample1.png" alt="P3 NI Sample 1"></td>
+              <td><img src="mel_outputs/p3/ni/sample2.png" alt="P3 NI Sample 2"></td>
+              <td><img src="mel_outputs/p3/ni/sample3.png" alt="P3 NI Sample 3"></td>
+            </tr>
+            <tr>
+              <th>Swin3D</th>
+              <td><img src="mel_outputs/p3/swin3d/sample1.png" alt="P3 Swin3D Sample 1"></td>
+              <td><img src="mel_outputs/p3/swin3d/sample2.png" alt="P3 Swin3D Sample 2"></td>
+              <td><img src="mel_outputs/p3/swin3d/sample3.png" alt="P3 Swin3D Sample 3"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p>&copy; 2026. All rights reserved.</p>
+    </div>
+
+  </div>
+</body>
+</html>
